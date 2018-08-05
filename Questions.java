@@ -1,51 +1,29 @@
-import java.util.ArrayList;
-import java.util.List;
+package minimum;
+import java.util.*;
 
-public class Questions {
-
-	/* Fields */
-	ArrayList<String> questionsList = new ArrayList<>;
-	int size = questionsList.size;
-
-	/* Constructor */
-	// The constructor doesn't need anything passed because
-	// we can always just change or add to the questionsList
-	// with methods. These are here for testing purposes.
-	public Questions() {
-		questionsList.add("Name?");
-		questionsList.add("Age?");
-		questionsList.add("Password?");
-		questionsList.add("Email?");
+public class Question {
+	
+	//fields
+	private String assignedQuestion;
+	private ArrayList<String> questions_answers = new ArrayList<String>();
+	
+	public Question(String question) {
+	assignedQuestion = question;
 	}
 
-	/* Setter Methods */
-	public void addQuestion(String newQuestion) {
-		questionsList.add(newQuestion);
+	public ArrayList<String> answer() {
+		Scanner reader = new Scanner(System.in);
+		System.out.println(this.assignedQuestion);
+		String answer = reader.next();
+		reader.close();
+		ArrayList<String> question_answer = new ArrayList<String>();
+		questions_answers.add(assignedQuestion);
+		questions_answers.add(answer);
+		return question_answer;
 	}
-
-	public void setQuestion(int index, String newQuestion) {
-		questionsList.set(index, newQuestion);
+	
+	
+	public ArrayList<String> get_Question_answers(){
+		return questions_answers;
 	}
-
-	public void removeQuestion(int index) {
-		questionsList.remove(index);
-	}
-
-	/* Getter Methods */
-	public String getQuestion(int index) {
-		return questionsList(index);
-	}
-
-	// Not sure when we'd need this functionality but just in case
-	public String getQuestionIndex(String question) { 
-		private int count = 0;
-		for(String elem : questionsList) {
-			if(question.equals(elem)) {
-				return count;
-			}
-			count++;
-		}
-	}
-
-
 }
